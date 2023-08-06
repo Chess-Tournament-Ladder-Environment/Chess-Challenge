@@ -32,10 +32,15 @@ namespace ChessChallenge.API
 			pieceTypeData = 0;
 		}
 
-		/// <summary>
-		/// Create a move from UCI notation, for example: "e2e4" to move a piece from e2 to e4.
-		/// If promoting, piece type must be included, for example: "d7d8q".
-		/// </summary>
+        public string ToUCIString()
+        {
+            return MoveUtility.GetMoveNameUCI(move);
+        }
+
+        /// <summary>
+        /// Create a move from UCI notation, for example: "e2e4" to move a piece from e2 to e4.
+        /// If promoting, piece type must be included, for example: "d7d8q".
+        /// </summary>
         public Move(string moveName, Board board)
         {
 			var data = Application.APIHelpers.MoveHelper.CreateMoveFromName(moveName, board);
